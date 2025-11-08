@@ -1,4 +1,5 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Label } from "@react-navigation/elements";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
@@ -44,8 +45,10 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <Ionicons name="car-sport" size={100} />
-      <TextInput style={styles.input} placeholder="VIN" autoCorrect={false} value={vin} onChangeText={setVin}></TextInput>
-      <TextInput style={styles.input} placeholder="Year" autoCorrect={false} value={year} onChangeText={setYear}></TextInput>
+      <Label style={styles.label}>VIN</Label>
+      <TextInput style={styles.input} autoCorrect={false} value={vin} onChangeText={setVin}></TextInput>
+      <Label style={styles.label}>Year</Label>
+      <TextInput style={styles.input} autoCorrect={false} value={year} onChangeText={setYear}></TextInput>
       <Pressable onPress={fetchCar} style={({ pressed }) => [
         styles.button,
         {
@@ -67,8 +70,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 20,
     margin: 10,
-    width: "80%",
-    backgroundColor: "#fff",
+    width: "80%"
   },
   button: {
     borderWidth: 3,
@@ -84,7 +86,10 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "column",
-    backgroundColor: "#fff"
+    
+  },
+  label: {
+    fontSize: 18,
   },
   background: {
     // position: 'absolute',
