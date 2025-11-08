@@ -42,51 +42,55 @@ export default function Index() {
 
 
   return (
-<View style={styles.container}>
-        <Text>
-          <Ionicons name="car-sport" size={100} color={"#fff"} />
-        </Text>
-        <TextInput style={styles.input} placeholder="VIN" autoCorrect={false} value={vin} onChangeText={setVin}></TextInput>
-        <TextInput style={styles.input} placeholder="Year" autoCorrect={false} value={year} onChangeText={setYear}></TextInput>
-        <Pressable onPress={fetchCar} style={styles.button}>
-          <Text style={{ textAlign: "center" }}>Submit</Text>
-        </Pressable>
-      </View>
+    <View style={styles.container}>
+      <Ionicons name="car-sport" size={100} />
+      <TextInput style={styles.input} placeholder="VIN" autoCorrect={false} value={vin} onChangeText={setVin}></TextInput>
+      <TextInput style={styles.input} placeholder="Year" autoCorrect={false} value={year} onChangeText={setYear}></TextInput>
+      <Pressable onPress={fetchCar} style={({ pressed }) => [
+        styles.button,
+        {
+          backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
+          transform: pressed ? [{scale: 1.2}] : [{scale: 1}],
+          transitionTimingFunction: "ease-in"
+        }
+      ]}>
+        <Text style={{ textAlign: "center", fontSize: 18 }}>Submit</Text>
+      </Pressable>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   input: {
-    borderWidth: 1,
-    borderColor: "blue",
-    borderRadius: 10,
+    borderWidth: 3,
+    borderColor: "#0558b6ff",
+    borderRadius: 20,
     padding: 20,
     margin: 10,
     width: "80%",
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
   button: {
-    backgroundColor: "#fff",
-    padding: 10,
-    borderColor: "#000",
-    borderStyle: "solid",
-    borderRadius: 10,
-    borderWidth: 1,
+    borderWidth: 3,
+    borderColor: "#0558b6ff",
+    borderRadius: 20,
+    padding: 20,
+    margin: 10,
     width: "80%",
-    marginTop: 24,
+    backgroundColor: "#fff",
   },
   container: {
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "column",
-    backgroundColor: "#00084d8e",
+    backgroundColor: "#fff"
   },
   background: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    height: "100%",
+    // position: 'absolute',
+    // left: 0,
+    // right: 0,
+    // top: 0,
+    // height: "100%",
   },
 });
